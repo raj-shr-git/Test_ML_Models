@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/TEST_ML_Models.iml" filepath="$PROJECT_DIR$/.idea/TEST_ML_Models.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/pytest_prac.iml" filepath="$PROJECT_DIR$/.idea/pytest_prac.iml" />
     </modules>
   </component>
 </project>
