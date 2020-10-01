@@ -127,3 +127,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Adhoc file to be ignored
+.idea
+.idea/
