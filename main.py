@@ -8,7 +8,7 @@ import logging
 logging.basicConfig(filename='main_file.log', filemode='w', level=logging.INFO,
                     format="%(asctime)s:%(levelname)s:%(message)s")
 try:
-    logging.info(" Module Import Started ")
+    logging.info(" #### Module Import Started #### ")
     from functions import (check_datatype,
                            addition,
                            subtraction,
