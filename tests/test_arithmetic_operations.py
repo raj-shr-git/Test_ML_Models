@@ -8,12 +8,15 @@ File Editing Versions::
     V.No.                              V.Desc                                 Modified Date
     v.0.1                   Added Check DataType Function                       04/10/2020
 """
+import sys, pytest, mock, pandas as pd
+
 from functions import (check_datatype,
                        addition,
                        subtraction,
                        multiplication,
                        division)
-import sys, pytest
+
+from functions import read_data, pre_process
 
 # Added check datatype function :: v.o.1  :: STARTS
 @pytest.mark.datatype
@@ -57,3 +60,23 @@ def test_division(num1, num2, result):
     test_div_result = division(num1, num2)
     assert test_div_result == result
     print('----o/p---',test_div_result, '------')
+
+read_data_mock= mock.Mock(return_value= 2, df= pd.DataFrame({'first_name':['Ramu','Shamu'],
+                                                             'last_name':['tendulkar','gangully']}))
+@pytest.fixture(scope='module')
+def test_read():
+    print("---Fix Called---")
+    df_data = read_data_mock.df
+    return df_data
+
+@pytest.mark.preprocess
+def test_pre_process(test_read):
+    df_preprocessed = pre_process(test_read, 'last_name')
+    print(df_preprocessed['last_name'][0])
+    assert df_preprocessed['last_name'][0] == 'Tendulkar'
+
+@pytest.mark.preprocess
+def test_pre_process1(test_read):
+    df_preprocessed = pre_process(test_read, 'first_name')
+    print(df_preprocessed['first_name'][0])
+    assert df_preprocessed['first_name'][0] == 'Ramu'
