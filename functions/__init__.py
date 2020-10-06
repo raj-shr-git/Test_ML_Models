@@ -9,3 +9,5 @@ from functions.arithmetic_operations import (check_datatype,
                                              subtraction,
                                              multiplication,
                                              division)
+
+from functions.data_preprocess import (read_data, pre_process)
